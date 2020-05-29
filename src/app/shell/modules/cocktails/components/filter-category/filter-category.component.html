@@ -1,0 +1,21 @@
+<div class="filters m-auto" *ngIf="filters">
+  <form [formGroup]="form" class="d-flex">
+    <ul>
+      <ng-container *ngFor="let filter of filters">
+        <li role="listitem">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" [id]="filter" [formControlName]="filter" class="custom-checkbox">
+            <label [for]="filter">{{ filter }}</label>
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+  </form>
+
+  <div class="drawer-actions" fxLayoutAlign="center center" fxLayoutGap="0.5rem">
+    <button mat-button (click)="updateFilters()" class="text-uppercase action-button">
+      Apply
+    </button>
+  </div>
+</div>
+

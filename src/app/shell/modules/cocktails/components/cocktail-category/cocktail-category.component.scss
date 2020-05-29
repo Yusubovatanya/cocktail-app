@@ -1,0 +1,23 @@
+@import '../../../../../../assets/theme/variables';
+
+.category-block {
+  margin-bottom: 5px;
+
+  .title {
+    margin-bottom: 10px;
+    padding-left: 50px;
+  }
+
+  .divider {
+    height: 1px;
+    background: $light-bg;
+    margin: 0 50px;
+  }
+
+  .cocktails-block {
+    .cocktails {
+      width: calc(100% - 15px);
+    }
+  }
+}
+

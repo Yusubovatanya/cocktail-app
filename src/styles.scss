@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap-grid';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/utilities';
+@import 'assets/theme/variables';
+
+// fonts
+@font-face {
+  font-family: 'Seaweed Script';
+  src: url('./assets/font/Seaweed_Script.woff2') format('woff2'),
+  url('./assets/font/Seaweed_Script.woff') format('woff'),
+  url('./assets/font/Seaweed_Script.ttf') format('ttf');
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  color: $secondary;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+* {
+  outline: 0 !important;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid transparent;
+}

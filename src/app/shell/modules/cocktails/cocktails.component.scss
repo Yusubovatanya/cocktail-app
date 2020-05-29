@@ -1,0 +1,20 @@
+@import '../../../../assets/theme/variables';
+
+.cocktails {
+
+  .filters-block {
+    border-right: 1px solid $light-bg;
+  }
+
+  .cocktails-block {
+    padding-top: 42px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      width: 0 !important
+    }
+  }
+}

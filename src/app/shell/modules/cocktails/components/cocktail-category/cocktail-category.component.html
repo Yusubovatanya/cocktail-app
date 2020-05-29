@@ -1,0 +1,13 @@
+<div class="category-block">
+  <h2 class="font-weight-normal title">{{ category.title }}</h2>
+
+  <div class="divider"></div>
+
+  <div class="cocktails-block m-auto">
+    <div fxLayout="row wrap" fxLayoutAlign="start start" class="cocktails m-auto">
+      <ng-container *ngFor="let cocktail of category.drinks">
+        <app-cocktail-item [cocktail]="cocktail"></app-cocktail-item>
+      </ng-container>
+    </div>
+  </div>
+</div>
