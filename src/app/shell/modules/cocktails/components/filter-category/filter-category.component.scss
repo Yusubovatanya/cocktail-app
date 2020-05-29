@@ -1,0 +1,88 @@
+@import '../../../../../../assets/theme/variables';
+
+.filters {
+  padding: 20px 0;
+  width: 249px;
+
+  .action-button {
+    width: 180px;
+    height: 39px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+
+.drawer-actions {
+  padding-top: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: auto;
+}
+
+ul li {
+  padding: 10px 0;
+}
+
+/*style wrapper to give some space*/
+.checkbox-wrapper {
+  position: relative;
+}
+
+/*style label to give some more space*/
+.checkbox-wrapper label {
+  display: block;
+  padding-left: 30px;
+}
+
+/*style and hide original checkbox*/
+.checkbox-wrapper input {
+  height: 20px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 20px;
+  margin: 0;
+}
+
+/*position new box*/
+.checkbox-wrapper input + label::before {
+  border: 2px solid $secondary;
+  border-radius: 5px;
+  content: '';
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+
+/*svg background styles*/
+.checkbox-wrapper input + label::after {
+  content: '';
+  opacity: 0;
+  background-image: url('src/assets/images/checkbox.svg');
+  background-repeat: no-repeat;
+  height: 10px;
+  width: 12px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/*reveal check for 'on' state*/
+.checkbox-wrapper input:checked + label::after {
+  opacity: 1;
+}
+
+/*focus styles*/
+.checkbox-wrapper input:focus + label::before {
+  box-shadow: 0 0 0 3px #ffbf47;
+  outline: 3px solid transparent; /* For Windows high contrast mode. */
+}

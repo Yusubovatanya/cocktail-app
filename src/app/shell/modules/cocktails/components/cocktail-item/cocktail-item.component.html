@@ -1,0 +1,15 @@
+<div class="cocktail-card">
+  <div
+    class="cocktail-img m-auto"
+    [ngStyle]="{
+      'background': 'url('+cocktail.strDrinkThumb+')',
+      'background-size': 'contain',
+      'background-position-x': 'center',
+      'background-position-y': 'top'
+    }"
+  ></div>
+
+  <div class="title-block">
+    <h3 class="title text-center font-weight-normal m-0">{{ cocktail.strDrink }}</h3>
+  </div>
+</div>
