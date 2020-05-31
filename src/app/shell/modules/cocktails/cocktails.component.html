@@ -3,7 +3,13 @@
     <app-filter-category [filters]="filters" (filtersUpdated)="updateFilters($event)"></app-filter-category>
   </div>
 
-  <div class="cocktails-block">
+  <div
+    class="cocktails-block search-results"
+    infiniteScroll
+    infiniteScrollUpDistance="2"
+    [scrollWindow]="false"
+    (scrolled)="onScroll()"
+  >
     <ng-container *ngFor="let category of cocktailCategories">
       <app-cocktail-category [category]="category"></app-cocktail-category>
     </ng-container>

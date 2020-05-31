@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
-  Cocktail,
   CocktailCategory,
-  CocktailFilterItem,
   CocktailFilters,
   CocktailsResponse,
 } from '../../shared/interfaces';

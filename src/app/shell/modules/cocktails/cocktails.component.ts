@@ -1,5 +1,4 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
 import { CocktailService } from '../../../core/services';
 import { CocktailCategory } from '../../../shared/interfaces';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -14,6 +13,9 @@ export class CocktailsComponent implements OnInit {
 
   filters: string[];
   cocktailCategories: CocktailCategory[] = [];
+
+  private currentCategories: string[];
+  private countCategory = 0;
 
   constructor(
     private cocktailService: CocktailService,
@@ -32,7 +34,7 @@ export class CocktailsComponent implements OnInit {
       )
       .subscribe((filters) => {
           this.filters = filters;
-          this.updateFilters(this.filters);
+          this.updateFilters(filters);
 
           this.cd.detectChanges();
         },
@@ -40,31 +42,33 @@ export class CocktailsComponent implements OnInit {
   }
 
   updateFilters(categories: string[]) {
-    const filters$: Observable<CocktailCategory>[] = [];
+    this.currentCategories = categories;
+    this.countCategory = 0;
+    this.cocktailCategories = [];
 
-    categories.forEach((category) => {
-      filters$.push(this.getCocktailCategory(category));
-    });
-
-    this.updateCocktailsList(filters$);
+    this.getCocktailCategory(this.currentCategories[this.countCategory]);
   }
 
-  private updateCocktailsList(filters$: Observable<CocktailCategory>[]): void {
-    forkJoin(...filters$)
+  onScroll() {
+    this.countCategory++;
+    const addedCategory = this.currentCategories[this.countCategory];
+
+    if (addedCategory) {
+      this.getCocktailCategory(addedCategory);
+    }
+  }
+
+  private getCocktailCategory(filter: string): void {
+    this.cocktailService.getCocktailsByCategory(filter)
       .pipe(
         untilDestroyed(this),
       )
-      .subscribe((categories) => {
-          this.cocktailCategories = [];
-          this.cocktailCategories = this.cocktailCategories.concat(categories);
+      .subscribe((category) => {
+          this.cocktailCategories = this.cocktailCategories.concat(category);
 
           this.cd.detectChanges();
         },
       );
-  }
-
-  private getCocktailCategory(category: string): Observable<CocktailCategory> {
-    return this.cocktailService.getCocktailsByCategory(category);
   }
 
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { SharedModule } from '../../../shared/shared.module';
 import { CocktailsRoutingModule } from './cocktails-routing.module';
 import { CocktailsComponent } from './cocktails.component';
@@ -13,6 +14,7 @@ import { CocktailCategoryComponent, CocktailItemComponent, FilterCategoryCompone
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
+    InfiniteScrollModule,
   ],
   declarations: [
     CocktailsComponent,
